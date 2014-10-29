@@ -13,6 +13,7 @@
   <modules>
     <module>model</module>
     <module>logic</module>
+    <module>emailnotifier</module>
     <module>webapp</module>
   </modules>
 
