@@ -16,10 +16,4 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-
-	<context:component-scan base-package="ru.qlogistic.entitymanager" />
-    <context:component-scan base-package="ru.qlogistic.service" />
-
-	<beans:import resource="dataSource-config.xml"/>
-    <beans:import resource="security-apllication-config.xml"/>
 </beans:beans>
