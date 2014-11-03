@@ -1,59 +1,35 @@
 package ru.qlogistic.logic.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "orders")
+public class Order implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "order_id")
     private Long id;
-
-    @Column(name = "sender_id", insertable=false, updatable=false, nullable = false)
-    private Long sender_id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_id")
-    private User sender;
-
-    @Column(name = "receiver_id", insertable=false, updatable=false, nullable = false)
-    private Long receiver_id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "receiver_id")
-    private User receiver;
-
-    @Column(name = "courier_id",  insertable=false, updatable=false)
-    private Long courier_id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "courier_id")
-    private User courier;
-
-    @Column(name = "from_id")
-    private Long from_id;
-
-    @Column(name = "to_id")
-    private Long to_id;
-
     @Column(name = "price")
     private Double price;
-
+    @Column(name = "sender_id")
+    private Long senderId;
+    @Column(name = "receiver_id")
+    private Long receiverId;
+    @Column(name = "courier_id")
+    private Long courierId;
     @Column(name = "status", columnDefinition = "smallint")
     @Enumerated(EnumType.ORDINAL)
     private EnumOrderStatus status;
-
-    @Column(name = "createDate") /*дата создания заказа*/
-    @Temporal(TemporalType.DATE)
+    @Column(name = "create_date") /*дата создания заказа*/
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
-
-    @Column(name = "closeDate") /*дата доставки заказа*/
-    @Temporal(TemporalType.DATE)
+    @Column(name = "close_date") /*дата доставки заказа*/
+    @Temporal(TemporalType.TIMESTAMP)
     private Date closeDate;
-
-    @Column(name = "activeDate") /*дата когда курьер взял заказ*/
-    @Temporal(TemporalType.DATE)
+    @Column(name = "activate_date") /*дата когда курьер взял заказ*/
+    @Temporal(TemporalType.TIMESTAMP)
     private Date activeDate;
 
     public Long getId() {
@@ -62,46 +38,6 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getSender_id() {
-        return sender_id;
-    }
-
-    public void setSender_id(Long sender_id) {
-        this.sender_id = sender_id;
-    }
-
-    public Long getReceiver_id() {
-        return receiver_id;
-    }
-
-    public void setReceiver_id(Long receiver_id) {
-        this.receiver_id = receiver_id;
-    }
-
-    public Long getCourier_id() {
-        return courier_id;
-    }
-
-    public void setCourier_id(Long courier_id) {
-        this.courier_id = courier_id;
-    }
-
-    public Long getFrom_id() {
-        return from_id;
-    }
-
-    public void setFrom_id(Long from_id) {
-        this.from_id = from_id;
-    }
-
-    public Long getTo_id() {
-        return to_id;
-    }
-
-    public void setTo_id(Long to_id) {
-        this.to_id = to_id;
     }
 
     public Double getPrice() {
@@ -144,27 +80,27 @@ public class Order {
         this.activeDate = activeDate;
     }
 
-    public User getSender() {
-        return sender;
+    public Long getSenderId() {
+        return senderId;
     }
 
-    public void setSender(User sender) {
-        this.sender = sender;
+    public void setSenderId(Long senderId) {
+        this.senderId = senderId;
     }
 
-    public User getReceiver() {
-        return receiver;
+    public Long getReceiverId() {
+        return receiverId;
     }
 
-    public void setReceiver(User receiver) {
-        this.receiver = receiver;
+    public void setReceiverId(Long receiverId) {
+        this.receiverId = receiverId;
     }
 
-    public User getCourier() {
-        return courier;
+    public Long getCourierId() {
+        return courierId;
     }
 
-    public void setCourier(User courier) {
-        this.courier = courier;
+    public void setCourierId(Long courierId) {
+        this.courierId = courierId;
     }
 }

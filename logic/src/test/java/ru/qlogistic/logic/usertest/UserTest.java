@@ -12,9 +12,9 @@ public class UserTest {
     public void addUserTest(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/context.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
-        User u= new User();
+        /*User u= new User();
         u.setUsername("John");
         userDao.saveAndFlush(u);
-        System.out.println(userDao.findUserById(1L));
+        System.out.println(userDao.findCourierById(1L));*/
     }
 }

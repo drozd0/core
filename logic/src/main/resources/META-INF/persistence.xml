@@ -5,7 +5,10 @@
     <persistence-unit name="qlogistic" transaction-type="RESOURCE_LOCAL">
         <class>ru.qlogistic.logic.model.User</class>
         <class>ru.qlogistic.logic.model.Order</class>
-        <!--<class>ru.qlogistic.logic.model.Role</class>-->
+        <class>ru.qlogistic.logic.model.Photo</class>
+        <class>ru.qlogistic.logic.model.Customer</class>
+        <class>ru.qlogistic.logic.model.Courier</class>
+        <class>ru.qlogistic.logic.model.Role</class>
         <!--<class>ru.qlogistic.logic.model.Address</class&ndash;&gt;-->
     </persistence-unit>
 </persistence>

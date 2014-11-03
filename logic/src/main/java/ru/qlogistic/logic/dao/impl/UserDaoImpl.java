@@ -2,6 +2,7 @@ package ru.qlogistic.logic.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.qlogistic.logic.dao.UserDao;
 import ru.qlogistic.logic.model.User;
 import ru.qlogistic.logic.model.repository.UserRepository;

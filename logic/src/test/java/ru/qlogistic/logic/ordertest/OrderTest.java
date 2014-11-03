@@ -13,7 +13,7 @@ public class OrderTest {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/context.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
 
-        User sender= new User();
+        /*User sender= new User();
         sender.setUsername("John");
         userDao.saveAndFlush(sender);
 
@@ -35,6 +35,6 @@ public class OrderTest {
         OrderDao orderDao = (OrderDao) context.getBean("orderDao");
         orderDao.saveAndFlush(order);
 
-        System.out.println(order);
+        System.out.println(order);*/
     }
 }

@@ -1,6 +1,8 @@
 package ru.qlogistic.logic.model;
 
-public enum EnumOrderStatus {
+import java.io.Serializable;
+
+public enum EnumOrderStatus implements Serializable{
     CREATED(1),
     IN_PROGRESS(2),
     CLOSED(3);

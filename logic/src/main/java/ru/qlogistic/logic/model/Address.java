@@ -1,15 +1,17 @@
 package ru.qlogistic.logic.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "address_id")
     private Long id;
 
-    @Column(name = "adress")
+    @Column(name = "address")
     private String address;
 
     @Column(name = "longtitude")

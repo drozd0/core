@@ -81,6 +81,12 @@
             <version>9.1-901.jdbc4</version>
             <!-- Best practise it is the postgres jar scope - provided -->
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.33</version>
+        </dependency>
+
 
     </dependencies>
 
