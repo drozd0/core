@@ -19,6 +19,12 @@ public abstract class User implements Serializable {
     private String username;
     @Column(name = "password")
     private String password;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "telephone_number")
+    private String telephoneNumber;
+    @Column(name = "purse_number")
+    private String purseNumber;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private Set<Photo> pasportPhoto;
     @Column(name = "reg_token")
@@ -34,6 +40,10 @@ public abstract class User implements Serializable {
     @Column(name = "checked")
     private boolean checked;
 
+    public Long getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -48,6 +58,30 @@ public abstract class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public String getPurseNumber() {
+        return purseNumber;
+    }
+
+    public void setPurseNumber(String purseNumber) {
+        this.purseNumber = purseNumber;
     }
 
     public Set<Photo> getPasportPhoto() {
