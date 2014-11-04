@@ -2,15 +2,12 @@ package ru.qlogistic.logic.ordertest;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.qlogistic.logic.dao.OrderDao;
 import ru.qlogistic.logic.dao.UserDao;
-import ru.qlogistic.logic.model.Order;
-import ru.qlogistic.logic.model.User;
 
 public class OrderTest {
     @Test
     public void addOrderTest(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/dataSource.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
 
         /*User sender= new User();

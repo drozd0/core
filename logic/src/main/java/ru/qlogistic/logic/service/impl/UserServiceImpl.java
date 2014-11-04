@@ -26,9 +26,8 @@ public class UserServiceImpl implements UserService{
         return userDao.findById(id);
     }
 
-    @Override
     @Transactional(rollbackFor = Exception.class)
-    public User loadUserByUsername(String email) throws UsernameNotFoundException {
+    public User findByUsername(String email){
         return userDao.findByUsername(email);
     }
 }

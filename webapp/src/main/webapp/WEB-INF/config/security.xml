@@ -1,7 +1,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
@@ -18,7 +18,7 @@
 
 		<form-login login-page="/login" 
 		    default-target-url="/"
-			authentication-failure-url="/login?error" 
+			authentication-failure-url="/login?error"
 			username-parameter="username"
 			password-parameter="password" 
 			login-processing-url="/auth/login_check"
@@ -26,18 +26,30 @@
 
 		<logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
 		<!-- enable csrf protection -->
-		<csrf />
+		<!--csrf /-->
 
-		<remember-me 
+		<!--remember-me
 		    token-validity-seconds="1209600"
 			remember-me-parameter="remember-me" 
-			data-source-ref="dataSource" />
+			data-source-ref="dataSource" /-->
 
 	</http>
 
+    <beans:bean id="savedRequestAwareAuthenticationSuccessHandler"
+          class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+        <beans:property name="targetUrlParameter" value="targetUrl" />
+    </beans:bean>
+
 	<!-- Select users and user_roles from database -->
     <authentication-manager>
-        <authentication-provider user-service-ref="userService"></authentication-provider>
+        <authentication-provider user-service-ref="securityUserService">
+            <password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
     </authentication-manager>
+
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <beans:bean id="securityUserService" class="ru.qlogistic.web.security.SecurityUserServiceImpl"/>
+
+    <beans:import resource="classpath:/META-INF/dataSource.xml"/>
 
 </beans:beans>
