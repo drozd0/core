@@ -15,7 +15,7 @@ public class Photo implements Serializable {
     @Column(name = "photo_url")
     private String photoUrl;
     @ManyToOne()
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public User getUser() {

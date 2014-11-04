@@ -6,10 +6,8 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "user_type")
 @Table(name = "users")
-public abstract class User implements Serializable {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,14 +17,16 @@ public abstract class User implements Serializable {
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "email")
-    private String email;
     @Column(name = "telephone_number")
     private String telephoneNumber;
+    @Column(name = "checked_telephone")
+    private boolean checkedPhone;
     @Column(name = "purse_number")
     private String purseNumber;
+    @Column(name = "avatar")
+    private String avatar;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private Set<Photo> pasportPhoto;
+    private Set<Photo> idCardPhoto;
     @Column(name = "reg_token")
     private String registrationToken;
     @Column(name = "reg_time")
@@ -39,6 +39,15 @@ public abstract class User implements Serializable {
     private Set<Role> roles;
     @Column(name = "checked")
     private boolean checked;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "sender_id")
+    private Set<Order> sentOrders;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "receiver_id")
+    private Set<Order> receivedOrders;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "courier_id")
+    private Set<Order> deliveredOrders;
 
     public Long getId() {
         return id;
@@ -60,14 +69,6 @@ public abstract class User implements Serializable {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getTelephoneNumber() {
         return telephoneNumber;
     }
@@ -84,12 +85,12 @@ public abstract class User implements Serializable {
         this.purseNumber = purseNumber;
     }
 
-    public Set<Photo> getPasportPhoto() {
-        return pasportPhoto;
+    public Set<Photo> getIdCardPhoto() {
+        return idCardPhoto;
     }
 
-    public void setPasportPhoto(Set<Photo> pasportPhoto) {
-        this.pasportPhoto = pasportPhoto;
+    public void setIdCardPhoto(Set<Photo> idCardPhoto) {
+        this.idCardPhoto = idCardPhoto;
     }
 
     public String getRegistrationToken() {
@@ -122,6 +123,46 @@ public abstract class User implements Serializable {
 
     public void setChecked(boolean checked) {
         this.checked = checked;
+    }
+
+    public boolean isCheckedPhone() {
+        return checkedPhone;
+    }
+
+    public void setCheckedPhone(boolean checkedPhone) {
+        this.checkedPhone = checkedPhone;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Set<Order> getSentOrders() {
+        return sentOrders;
+    }
+
+    public void setSentOrders(Set<Order> sentOrders) {
+        this.sentOrders = sentOrders;
+    }
+
+    public Set<Order> getReceivedOrders() {
+        return receivedOrders;
+    }
+
+    public void setReceivedOrders(Set<Order> receivedOrders) {
+        this.receivedOrders = receivedOrders;
+    }
+
+    public Set<Order> getDeliveredOrders() {
+        return deliveredOrders;
+    }
+
+    public void setDeliveredOrders(Set<Order> deliveredOrders) {
+        this.deliveredOrders = deliveredOrders;
     }
 
     @Override

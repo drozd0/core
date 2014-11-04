@@ -4,5 +4,6 @@ import ru.qlogistic.logic.model.User;
 
 public interface UserDao {
     void saveAndFlush(User user);
-    User findUserById(Long id);
+    User findById(Long id);
+    User findByUsername(String username);
 }
