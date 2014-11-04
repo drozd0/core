@@ -14,4 +14,18 @@ public class MainController {
         view.setViewName("index");
         return view;
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("login");
+        return view;
+    }
+
+    @RequestMapping(value = "/registrate", method = RequestMethod.GET)
+    public ModelAndView registrate(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("create_user");
+        return view;
+    }
 }

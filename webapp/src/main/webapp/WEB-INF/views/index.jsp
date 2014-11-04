@@ -8,6 +8,11 @@
         <title>Main</title>
     </head>
     <body>
-        Main page
+    <table>
+        <tr>
+            <td><a href="<c:url value="/registrate" />">registration</a></td>
+        </tr>
+    </table>
+
     </body>
 </html>

@@ -1,6 +1,8 @@
 package ru.qlogistic.logic.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.qlogistic.logic.dao.UserDao;
@@ -26,7 +28,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public User findByUsername(String username) {
-        return userDao.findByUsername(username);
+    public User loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userDao.findByUsername(email);
     }
 }
