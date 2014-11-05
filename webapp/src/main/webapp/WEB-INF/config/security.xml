@@ -12,7 +12,7 @@
 			<cache-control />
 		</headers>
 
-		<intercept-url pattern="/main**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/main**" access="hasRole('ADMIN')" />
 		<!-- redirect to 403 access denied <intercept-url pattern="/update**" access="hasRole('ROLE_ADMIN') 
 			and isFullyAuthenticated()" /> -->
 
@@ -22,7 +22,7 @@
 			username-parameter="username"
 			password-parameter="password" 
 			login-processing-url="/auth/login_check"
-			authentication-success-handler-ref="savedRequestAwareAuthenticationSuccessHandler" />
+			authentication-success-handler-ref="successRedirectService" />
 
 		<logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
 		<!-- enable csrf protection -->
@@ -35,10 +35,7 @@
 
 	</http>
 
-    <beans:bean id="savedRequestAwareAuthenticationSuccessHandler"
-          class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
-        <beans:property name="targetUrlParameter" value="targetUrl" />
-    </beans:bean>
+    <beans:bean id="successRedirectService" class="ru.qlogistic.web.successhandler.SuccessHandler"/>
 
 	<!-- Select users and user_roles from database -->
     <authentication-manager>
