@@ -1,11 +1,7 @@
 package ru.qlogistic.web.successhandler;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -14,35 +10,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
-/**
- * User: anton
- */
 public class SuccessHandler implements AuthenticationSuccessHandler {
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-    private static Map<String, String> redirectMap;
-    static{
-        redirectMap = new HashMap<String,String>();
-        redirectMap.put("SENDER","/sender");
-        redirectMap.put("COURIER","/courier");
-        redirectMap.put("RECEIVER","/receiver");
-    }
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
-                                        HttpServletResponse httpServletResponse,
-                                        Authentication authentication) throws IOException, ServletException {
-        String tmp = null;
-        final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        for (final GrantedAuthority grantedAuthority : authorities) {
-            tmp = redirectMap.get(grantedAuthority.getAuthority());
-        }
-        final String url = tmp;
-        redirectStrategy.sendRedirect(httpServletRequest, httpServletResponse, url);
 
-        final HttpSession session = httpServletRequest.getSession(false);
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        Authentication authentication) throws IOException, ServletException {
+        Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        if(roles.contains("SENDER")){
+            response.sendRedirect("/sender");
+        }else if(roles.contains("COURIER")){
+            response.sendRedirect("/courier");
+        }else if(roles.contains("RECEIVER")){
+            response.sendRedirect("/receiver");
+        }else if(roles.contains("ADMIN")){
+            response.sendRedirect("/admin");
+        }else {
+            throw new IllegalStateException("Logged user has not required role!");
+        }
+        clearAuthenticationAttributes(request);
+    }
+
+    protected void clearAuthenticationAttributes(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
         if (session == null) {
             return;
         }

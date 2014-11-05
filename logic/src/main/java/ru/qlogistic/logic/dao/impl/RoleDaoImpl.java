@@ -17,13 +17,11 @@ public class RoleDaoImpl implements RoleDao {
     private RoleRepository roleRepository;
 
     @Override
-    @Transactional
     public Role findRoleById(Long id) {
         return roleRepository.findRoleById(id);
     }
 
     @Override
-    @Transactional
     public void saveOrUpdateRole(Role role) {
         roleRepository.saveAndFlush(role);
     }
