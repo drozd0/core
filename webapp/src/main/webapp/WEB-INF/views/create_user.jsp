@@ -25,6 +25,16 @@
                     <td><input type='password' name='password' /></td>
                 </tr>
                 <tr>
+                    <td>Role:</td>
+                    <td>
+                        <select name="role_id">
+                            <option value=1>Отправитель</option>
+                            <option value=2>Получатель</option>
+                            <option value=3>Курьер</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan='2'><input name="submit" type="submit" value="registrate" /></td>
                 </tr>
             </table>

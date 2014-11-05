@@ -11,7 +11,35 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView root(){
         ModelAndView view = new ModelAndView();
+        view.setViewName("redirect:login");
+        return view;
+    }
+
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public ModelAndView main(){
+        ModelAndView view = new ModelAndView();
         view.setViewName("index");
+        return view;
+    }
+
+    @RequestMapping(value = "/courier", method = RequestMethod.GET)
+    public ModelAndView courier(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("courier");
+        return view;
+    }
+
+    @RequestMapping(value = "/sender", method = RequestMethod.GET)
+    public ModelAndView sender(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("sender");
+        return view;
+    }
+
+    @RequestMapping(value = "/receiver", method = RequestMethod.GET)
+    public ModelAndView receiver(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("receiver");
         return view;
     }
 

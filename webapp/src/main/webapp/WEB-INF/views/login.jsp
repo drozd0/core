@@ -36,6 +36,8 @@
 
             </form>
 
+            <a href="<c:url value="/registrate" />">registration</a>
+
         </div>
 
     </body>

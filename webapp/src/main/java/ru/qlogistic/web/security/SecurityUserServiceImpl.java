@@ -24,8 +24,9 @@ public class SecurityUserServiceImpl implements UserDetailsService {
         User currentUser = userService.findByUsername(email);
         if(currentUser != null){
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            for(Role role : currentUser.getRoles())
+            for(Role role : currentUser.getRoles()){
                 authorities.add(new SimpleGrantedAuthority(role.getRole()));
+            }
             return new org.springframework.security.core.userdetails.User(currentUser.getUsername(), currentUser.getPassword(), authorities);
         }
         throw new UsernameNotFoundException(String.format("User with username:%s does not exist!", email));
