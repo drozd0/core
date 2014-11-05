@@ -9,7 +9,6 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/dataSource.xml");
         UserService userService = (UserService) context.getBean("userService");
         User mike = userService.findByUsername("Mike");
-
         User john = userService.findByUsername("John");
         User gery = userService.findByUsername("Gery");
         System.out.println(mike);
