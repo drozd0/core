@@ -2,8 +2,11 @@ package ru.qlogistic.web.successhandler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import ru.qlogistic.logic.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

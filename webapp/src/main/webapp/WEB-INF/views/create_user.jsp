@@ -21,11 +21,11 @@
                     <td><input type='text' name='username'></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <td>Пароль:</td>
                     <td><input type='password' name='password' /></td>
                 </tr>
                 <tr>
-                    <td>Role:</td>
+                    <td>Зарегистрироваться как:</td>
                     <td>
                         <select name="role_id">
                             <option value=1>Клиент</option>

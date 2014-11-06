@@ -22,18 +22,10 @@
                         <td><input type='password' name='password' /></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>Remember Me: <input type="checkbox" name="remember-me" /></td>
-                    </tr>
-                    <tr>
                         <td colspan='2'><input name="submit" type="submit" value="login" /></td>
                     </tr>
 
                 </table>
-
-                <input type="hidden" name="${_csrf.parameterName}"
-                       value="${_csrf.token}" />
-
             </form>
 
             <a href="<c:url value="/registrate" />">registration</a>

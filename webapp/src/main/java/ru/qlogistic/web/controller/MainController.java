@@ -1,9 +1,11 @@
 package ru.qlogistic.web.controller;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ru.qlogistic.logic.model.User;
 
 @Controller
 public class MainController {
@@ -19,20 +21,6 @@ public class MainController {
     public ModelAndView main(){
         ModelAndView view = new ModelAndView();
         view.setViewName("index");
-        return view;
-    }
-
-    @RequestMapping(value = "/courier", method = RequestMethod.GET)
-    public ModelAndView courier(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("courier");
-        return view;
-    }
-
-    @RequestMapping(value = "/client", method = RequestMethod.GET)
-    public ModelAndView sender(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("client");
         return view;
     }
 
