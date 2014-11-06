@@ -6,11 +6,10 @@ insert into users(user_id, checked, password, reg_time, reg_token, username,tele
 insert into users(user_id, checked, password, reg_time, reg_token, username,telephone_number,checked_telephone,purse_number,avatar) VALUES (3, true, 'password', '2013-11-03 15:14:09.942', '1234', 'user3', '+79095678690', false, '34334234344', 'https://cdn4.iconfinder.com/data/icons/ironman_lin/512/ironman_III.png');
 ALTER SEQUENCE users_user_id_seq RESTART WITH 7;
 
-insert into roles(role_id, role_name) VALUES (1, 'SENDER');
-insert into roles(role_id, role_name) VALUES (2, 'RECEIVER');
-insert into roles(role_id, role_name) VALUES (3, 'COURIER');
-insert into roles(role_id, role_name) VALUES (4, 'ADMIN');
-ALTER SEQUENCE roles_role_id_seq RESTART WITH 5;
+insert into roles(role_id, role_name) VALUES (1, 'CLIENT');
+insert into roles(role_id, role_name) VALUES (2, 'COURIER');
+insert into roles(role_id, role_name) VALUES (3, 'ADMIN');
+ALTER SEQUENCE roles_role_id_seq RESTART WITH 4;
 
 
 insert into user_role(user_id, role_id) VALUES (1, 1);

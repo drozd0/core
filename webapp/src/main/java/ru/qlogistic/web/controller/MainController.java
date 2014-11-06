@@ -29,17 +29,10 @@ public class MainController {
         return view;
     }
 
-    @RequestMapping(value = "/sender", method = RequestMethod.GET)
+    @RequestMapping(value = "/client", method = RequestMethod.GET)
     public ModelAndView sender(){
         ModelAndView view = new ModelAndView();
-        view.setViewName("sender");
-        return view;
-    }
-
-    @RequestMapping(value = "/receiver", method = RequestMethod.GET)
-    public ModelAndView receiver(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("receiver");
+        view.setViewName("client");
         return view;
     }
 

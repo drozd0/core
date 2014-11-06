@@ -28,9 +28,8 @@
                     <td>Role:</td>
                     <td>
                         <select name="role_id">
-                            <option value=1>Отправитель</option>
-                            <option value=2>Получатель</option>
-                            <option value=3>Курьер</option>
+                            <option value=1>Клиент</option>
+                            <option value=2>Курьер</option>
                         </select>
                     </td>
                 </tr>

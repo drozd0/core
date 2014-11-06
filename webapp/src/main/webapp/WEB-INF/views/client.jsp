@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>receiver</title>
+    <title>client</title>
 </head>
 <body>
-    <H3>The Receiver's page</H3>
+    <H3>The Client's page</H3>
 </body>
 </html>
