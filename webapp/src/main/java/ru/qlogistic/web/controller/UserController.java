@@ -1,7 +1,6 @@
 package ru.qlogistic.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,10 +12,8 @@ import ru.qlogistic.logic.model.Role;
 import ru.qlogistic.logic.model.User;
 import ru.qlogistic.logic.service.RoleService;
 import ru.qlogistic.logic.service.UserService;
-import ru.qlogistic.web.form.UserRegistrationForm;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 @Controller
@@ -31,7 +28,7 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @RequestMapping(value = "/user/add")
+    /*@RequestMapping(value = "/user/add")
     public ModelAndView saveUser(UserRegistrationForm userForm, BindingResult bind){
         ModelAndView view = new ModelAndView();
         if(!bind.hasErrors()){
@@ -48,7 +45,7 @@ public class UserController {
             userService.saveOrUpdate(user);
         }
         return view;
-    }
+    }*/
 
     @RequestMapping(value = "/user/update")
     public ModelAndView updateUser(User user, BindingResult bind){

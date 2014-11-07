@@ -6,29 +6,32 @@
 <head>
     <title></title>
 </head>
-<body onload='document.UserSaveRequest.username.focus();'>
+<body onload='document.client.username.focus();'>
 
 <h1>Client registration page.</h1>
 
 <div id="user-box">
-    <form name='UserSaveRequest'
-          action="<c:url value='/registration/client' />"
+    <form:form commandName='client'
+          action="/registration/client"
           method='POST'>
 
         <table>
             <tr>
                 <td>Email:</td>
-                <td><input type='text' name='username'></td>
+                <td><form:input path='username'/></td>
+                <td><form:errors path='username'/></td>
             </tr>
             <tr>
                 <td>Пароль:</td>
-                <td><input type='password' name='password' /></td>
+                <td><form:input type='password' path='password'/></td>
+                <td><form:errors path='password'/></td>
             </tr>
             <tr>
-                <input name="submit" type="submit" value="Зарегестрироваться" /></td>
+                <td/>
+                <td><input name="submit" type="submit" value="Зарегестрироваться" /></td>
             </tr>
         </table>
-    </form>
+    </form:form>
 
 </div>
 

@@ -46,10 +46,9 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/client", method = RequestMethod.POST)
-    public RedirectView saveClient(@ModelAttribute("client") @Valid UserSaveRequest request, BindingResult bindingResult){
-        RedirectView redirect = new RedirectView();
+    public String saveClient(@ModelAttribute("client") @Valid UserSaveRequest request, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            redirect.setUrl("/registration/client");
+            return "client";
         }
         User user = new User();
         user.setUsername(request.getUsername());
@@ -58,15 +57,13 @@ public class RegistrationController {
         rolesForClient.add(roleService.findRoleByRole("CLIENT"));
         user.setRoles(rolesForClient);
         userService.saveOrUpdate(user);
-        redirect.setUrl("/login");
-        return redirect;
+        return "login";
     }
 
     @RequestMapping(value = "/courier", method = RequestMethod.POST)
-    public RedirectView saveCourier(@ModelAttribute("courier")@Valid UserSaveRequest request, BindingResult bindingResult){
-        RedirectView redirect = new RedirectView();
+    public String saveCourier(@ModelAttribute("courier")@Valid UserSaveRequest request, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            redirect.setUrl("/registration/courier");
+            return "courier_reg_form";
         }
         User user = new User();
         user.setUsername(request.getUsername());
@@ -75,8 +72,7 @@ public class RegistrationController {
         rolesForCourier.add(roleService.findRoleByRole("COURIER"));
         user.setRoles(rolesForCourier);
         userService.saveOrUpdate(user);
-        redirect.setUrl("/login");
-        return redirect;
+        return "login";
     }
 
 }
