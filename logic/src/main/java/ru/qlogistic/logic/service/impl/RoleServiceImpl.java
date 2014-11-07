@@ -27,4 +27,10 @@ public class RoleServiceImpl implements RoleService{
     public void saveOrUpdateRole(Role role) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    @Transactional
+    public Role findRoleByRole(String name) {
+        return roleDao.findRoleByRole(name);
+    }
 }

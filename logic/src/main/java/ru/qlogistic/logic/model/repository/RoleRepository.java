@@ -8,4 +8,5 @@ import ru.qlogistic.logic.model.Role;
  */
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Role findRoleById(Long id);
+    Role findRoleByRole(String name);
 }

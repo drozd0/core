@@ -21,7 +21,7 @@
 			authentication-failure-url="/login?error"
 			username-parameter="username"
 			password-parameter="password" 
-			login-processing-url="/auth/login_check"
+			login-processing-url="/authenticate"
 			authentication-success-handler-ref="successRedirectService" />
 
 		<logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
@@ -49,4 +49,7 @@
 
     <beans:import resource="classpath:/META-INF/dataSource.xml"/>
 
+    <global-method-security
+            secured-annotations="enabled"
+            pre-post-annotations="enabled"/>
 </beans:beans>

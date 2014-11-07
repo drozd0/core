@@ -31,7 +31,7 @@
         <property name="jpaVendorAdapter" ref="jpaAdapter"/>
         <property name="jpaProperties">
             <props>
-
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.connection.driver_class">org.postgresql.Driver</prop>
                 <prop key="hibernate.default_schema">public</prop>
                 <prop key="hibernate.hbm2ddl.auto">create-drop</prop>

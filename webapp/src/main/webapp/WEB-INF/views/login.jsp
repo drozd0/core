@@ -6,12 +6,10 @@
     </head>
     <body onload='document.loginForm.username.focus();'>
         <h1>Login</h1>
-
         <div id="login-box">
             <form name='loginForm'
-                  action="<c:url value='/auth/login_check?targetUrl=${targetUrl}' />"
+                  action="<c:url value='/authenticate' />"
                   method='POST'>
-
                 <table>
                     <tr>
                         <td>Email:</td>
@@ -24,11 +22,11 @@
                     <tr>
                         <td colspan='2'><input name="submit" type="submit" value="login" /></td>
                     </tr>
-
                 </table>
             </form>
-
-            <a href="<c:url value="/registrate" />">registration</a>
+            <a href="<c:url value="/registration/client"/>">client registration</a>
+            <br>
+            <a href="<c:url value="/registration/courier"/>">courier registration</a>
 
         </div>
 

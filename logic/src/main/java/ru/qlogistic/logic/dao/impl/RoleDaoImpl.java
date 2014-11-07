@@ -25,4 +25,9 @@ public class RoleDaoImpl implements RoleDao {
     public void saveOrUpdateRole(Role role) {
         roleRepository.saveAndFlush(role);
     }
+
+    @Override
+    public Role findRoleByRole(String name) {
+        return roleRepository.findRoleByRole(name);
+    }
 }
