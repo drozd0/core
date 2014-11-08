@@ -10,33 +10,14 @@
     <H3>The Client's page</H3>
 
     <body>
-    <form:form method="post" action="/user/update" commandName="user" id="userForm">
-        <table>
-            <tr>
-                <td><form:label path="id" id="id">ID:</form:label></td>
-                <td><form:input readonly="true" path="id" /></td>
-            </tr>
-            <tr>
-                <td><form:label path="username" id="username">Email:</form:label></td>
-                <td><form:input path="username" /></td>
-            </tr>
-            <tr>
-                <td><form:label path="telephoneNumber" id="telephoneNumber">Номер телефона:</form:label></td>
-                <td><form:input path="telephoneNumber" /></td>
-            </tr>
-            <tr>
-                <td><form:hidden path="password" id="password"></form:hidden></td>
-                <td><form:hidden path="password" /></td>
-            </tr>
-            <tr>
-                <td><form:label path="purseNumber" id="purseNumber">Номер кошелька:</form:label></td>
-                <td><form:input path="purseNumber" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="Сохранить" /></td>
-            </tr>
-        </table>
-    </form:form>
+        <div>
+            <div id="menu">
+
+            </div>
+            <div id="content">
+
+            </div>
+        </div>
     </body>
 
 </body>
