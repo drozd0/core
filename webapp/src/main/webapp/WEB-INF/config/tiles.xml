@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!--
+        * @desc:
+        *
+        * definitions with structure like:
+        * <definition name="%view_name%" extends="layout"/>
+        * returns COMPLETELY rendered page WITH header, footer, content etc.
+        * such definitions are used for navigating through the site
+        * using regular GET requests i.e. by changing browser's URL manually.
+        *
+        * definitions with structure like:
+        * <definition name="%view_name%/content" template="%jsp_path%"/>
+        * returns ONLY content of the specific page WITHOUT header, footer etc.
+        * such "content only" definitions are used for navigating through the site using AJAX.
+    -->
+
+    <definition name="default" template="/pages/layouts/default.jsp">
+        <put-attribute name="header" value="/pages/layouts/header.jsp" />
+        <put-attribute name="menu" value="/pages/layouts/menu.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/pages/layouts/footer.jsp" />
+    </definition>
+
+    <definition name="client" extends="default">
+        <put-attribute name="content" value="/pages/view/client.jsp" />
+    </definition>
+
+
+    <definition name="courier" extends="default">
+        <put-attribute name="content" value="/pages/view/courier.jsp" />
+    </definition>
+
+    <definition name="login" template="/pages/login.jsp"/>
+    <definition name="client_reg_form" template="/pages/client_reg_form.jsp"/>
+    <definition name="courier_reg_form" template="/pages/courier_reg_form.jsp"/>
+
+</tiles-definitions>

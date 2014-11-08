@@ -9,9 +9,10 @@
 		                http://www.springframework.org/schema/beans
 		                http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
+    <!-- i18n configuration -->
     <beans:bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-        <beans:property name="defaultLocale" value="ru" />
+        <beans:property name="defaultLocale" value="us" />
         <beans:property name="cookieName" value="locale" />
     </beans:bean>
 
@@ -19,7 +20,7 @@
           class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <beans:property name="paramName" value="lang" />
     </beans:bean>
-    
+    <default-servlet-handler />
     <beans:bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
         <beans:property name="interceptors">
             <beans:list>
@@ -30,9 +31,29 @@
 
     <beans:bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <beans:property name="basenames" value="/WEB-INF/i18n/message, /WEB-INF/i18n/application" />
+        <beans:property name="basenames" value="/resources/i18n/message, /resources/i18n/application" />
         <beans:property name="defaultEncoding" value="UTF-8" />
     </beans:bean>
+
+    <!-- Tiles configuration -->
+    <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    </beans:bean>
+
+    <!-- keep this version like example, it does not work because TilesViewResolver re-write localeChangeInterceptor and locale swithing does not work -->
+    <!--beans:bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <beans:property name="cache" value="false"/>
+    </beans:bean-->
+
+
+    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <beans:property name="definitions">
+            <beans:list>
+                <beans:value>/WEB-INF/config/tiles.xml</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
 
 
 </beans:beans>

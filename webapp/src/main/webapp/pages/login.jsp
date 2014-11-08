@@ -9,25 +9,26 @@
 <spring:message code="label.login.button" var="labelLoginButton"/>
 <spring:message code="label.client.registration" var="labelClientRegistration"/>
 <spring:message code="label.courier.registration" var="labelCourierRegistration"/>
+<spring:message code="label.bad.credentials" var="labelBadCredentials"/>
 <html>
     <head>
         <title>Login Page</title>
     </head>
     <body onload='document.loginForm.username.focus();'>
-        Language : <a href="?lang=us">us</a>|<a href="?lang=ru">ru</a>
+        Lang : <a href="?lang=us">us</a>|<a href="?lang=ru">ru</a>
         <h1>Login</h1>
         <div id="login-box">
             <form:form commandName='loginForm'
                   action="/authenticate"
                   method='POST'>
                 <c:if test="${not empty param.error}">
-                    <label>Bad credentials. Username or password is incorrect.</label>
+                    <label>${labelBadCredentials}</label>
                 </c:if>
                 <table>
 
                     <tr>
                         <td>${labelUsername}</td>
-                        <td><input type='text' name='username'></td>
+                        <td><input type='text' name='username' /></td>
                     </tr>
                     <tr>
                         <td>${labelPassword}</td>
