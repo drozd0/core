@@ -10,9 +10,10 @@
 <spring:message code="label.client.registration" var="labelClientRegistration"/>
 <spring:message code="label.courier.registration" var="labelCourierRegistration"/>
 <spring:message code="label.bad.credentials" var="labelBadCredentials"/>
+<spring:message code="label.login.page.title" var="title"/>
 <html>
     <head>
-        <title>Login Page</title>
+        <title>${title}</title>
     </head>
     <body onload='document.loginForm.username.focus();'>
         Lang : <a href="?lang=us">us</a>|<a href="?lang=ru">ru</a>

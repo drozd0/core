@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list id="clientMenu" value-type="ru.qlogistic.web.util.MenuEntry" scope="prototype">
+        <bean class="ru.qlogistic.web.util.MenuEntry">
+            <property name="controller" value="#{servletContext.contextPath}/client/personal"/>
+            <property name="name" value="label.personal.item"/>
+            <property name="icon" value="icon"/>
+        </bean>
+        <bean class="ru.qlogistic.web.util.MenuEntry">
+            <property name="controller" value="#{servletContext.contextPath}/client/fake"/>
+            <property name="name" value="label.fake.item"/>
+            <property name="icon" value="icon"/>
+        </bean>
+    </util:list>
+</beans>

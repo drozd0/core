@@ -40,11 +40,6 @@
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
     </beans:bean>
 
-    <!-- keep this version like example, it does not work because TilesViewResolver re-write localeChangeInterceptor and locale swithing does not work -->
-    <!--beans:bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-        <beans:property name="cache" value="false"/>
-    </beans:bean-->
-
 
     <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <beans:property name="definitions">
@@ -53,7 +48,5 @@
             </beans:list>
         </beans:property>
     </beans:bean>
-
-
 
 </beans:beans>

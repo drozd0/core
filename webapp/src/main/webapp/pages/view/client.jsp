@@ -8,17 +8,5 @@
 </head>
 <body>
     <H3>The Client's page</H3>
-
-    <body>
-        <div>
-            <div id="menu">
-
-            </div>
-            <div id="content">
-
-            </div>
-        </div>
-    </body>
-
 </body>
 </html>
