@@ -13,7 +13,7 @@
         <intercept-url pattern="/client/**" access="hasRole('CLIENT')"/>
         <intercept-url pattern="/courier/**" access="hasRole('COURIER')"/>
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
-        <!--intercept-url pattern="/" access="permitAll"/-->
+        <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/**" access="isAuthenticated()"/>
 
 		<form-login login-page="/login"

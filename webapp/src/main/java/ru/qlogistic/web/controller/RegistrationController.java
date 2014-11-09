@@ -5,6 +5,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,7 +50,12 @@ public class RegistrationController {
     @RequestMapping(value = "/client", method = RequestMethod.POST)
     public String saveClient(@ModelAttribute("client") @Valid UserSaveRequest request, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "client";
+            return "client_reg_form";
+        }
+        // check if user with name is already exists
+        if(!checkUserAlreadyExists(request)){
+            bindingResult.addError(new FieldError("client", "username", "{validation.error.user.already.exists}"));
+            return "client_reg_form";
         }
         User user = new User();
         user.setUsername(request.getUsername());
@@ -61,9 +67,18 @@ public class RegistrationController {
         return "login";
     }
 
+    private boolean checkUserAlreadyExists(UserSaveRequest request) {
+        return userService.findByUsername(request.getUsername()) == null;
+    }
+
     @RequestMapping(value = "/courier", method = RequestMethod.POST)
     public String saveCourier(@ModelAttribute("courier")@Valid UserSaveRequest request, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
+            return "courier_reg_form";
+        }
+        // check if user with name is already exists
+        if(!checkUserAlreadyExists(request)){
+            bindingResult.addError(new FieldError("courier", "username", "{validation.error.user.already.exists}"));
             return "courier_reg_form";
         }
         User user = new User();

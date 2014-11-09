@@ -1,13 +1,15 @@
 package ru.qlogistic.web.request;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
 
 @Validated
 public class UserSaveRequest {
-    @NotBlank(message = "Username should not be empty")
+    @NotBlank(message = "{validation.error.username.not.blank}")
+    @Email(message = "{validation.error.field.email}")
     private String username;
-    @NotBlank
+    @NotBlank(message = "{validation.error.password.not.blank}")
     private String password;
     private String retypedPassword;
 
