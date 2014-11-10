@@ -5,6 +5,7 @@
 <!-- Message i18n-->
 <spring:message code="label.username" var="labelUsername"/>
 <spring:message code="label.password" var="labelPassword"/>
+<spring:message code="label.rePassword" var="labelRePassword"/>
 <spring:message code="label.registration.button" var="labelRegButton"/>
 <spring:message code="label.registration.page.title" var="labelPageTitle"/>
 <spring:message code="label.courier.registration.title.layer1" var="labelTitleLayer1"/>
@@ -31,6 +32,11 @@
                 <td>${labelPassword}</td>
                 <td><form:input type='password' path='password' /></td>
                 <td><form:errors path='password'/></td>
+            </tr>
+            <tr>
+                <td>${labelRePassword}:</td>
+                <td><form:input type='password' path='rePassword'/></td>
+                <td><form:errors path='rePassword'/></td>
             </tr>
             <tr>
                 <td/>

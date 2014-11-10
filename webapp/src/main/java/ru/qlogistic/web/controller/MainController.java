@@ -10,30 +10,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView root(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("redirect:login");
-        return view;
+    public String root(){
+        return "redirect:login";
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView main(){
         ModelAndView view = new ModelAndView();
         view.setViewName("index");
         return view;
-    }
+    }*/
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(){
+    public ModelAndView login() {
         ModelAndView view = new ModelAndView();
         view.setViewName("login");
-        return view;
-    }
-
-    @RequestMapping(value = "/registrate", method = RequestMethod.GET)
-    public ModelAndView registrate(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("create_user");
         return view;
     }
 }

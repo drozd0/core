@@ -52,11 +52,11 @@ public class RegistrationController {
         if(bindingResult.hasErrors()){
             return "client_reg_form";
         }
-        // check if user with name is already exists
+        /* check if user with name is already exists
         if(!checkUserAlreadyExists(request)){
             bindingResult.addError(new FieldError("client", "username", "{validation.error.user.already.exists}"));
             return "client_reg_form";
-        }
+        }*/
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -76,11 +76,11 @@ public class RegistrationController {
         if(bindingResult.hasErrors()){
             return "courier_reg_form";
         }
-        // check if user with name is already exists
+        /* check if user with name is already exists
         if(!checkUserAlreadyExists(request)){
             bindingResult.addError(new FieldError("courier", "username", "{validation.error.user.already.exists}"));
             return "courier_reg_form";
-        }
+        }*/
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));

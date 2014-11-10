@@ -35,6 +35,15 @@
         <put-attribute name="content" value="/pages/view/courier.jsp" />
     </definition>
 
+    <definition name="courier_private" extends="default">
+        <put-attribute name="content" value="/pages/view/courier_private.jsp" />
+    </definition>
+
+    <definition name="client_private" extends="default">
+        <put-attribute name="content" value="/pages/view/client_private.jsp" />
+    </definition>
+
+
     <definition name="login" template="/pages/login.jsp"/>
     <definition name="client_reg_form" template="/pages/client_reg_form.jsp"/>
     <definition name="courier_reg_form" template="/pages/courier_reg_form.jsp"/>

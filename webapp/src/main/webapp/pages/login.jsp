@@ -17,7 +17,7 @@
     </head>
     <body onload='document.loginForm.username.focus();'>
         Lang : <a href="?lang=us">us</a>|<a href="?lang=ru">ru</a>
-        <h1>Login</h1>
+        <h1>${title}</h1>
         <div id="login-box">
             <form:form commandName='loginForm'
                   action="/authenticate"

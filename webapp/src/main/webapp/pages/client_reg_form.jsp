@@ -5,6 +5,7 @@
 <!-- Message i18n-->
 <spring:message code="label.username" var="labelUsername"/>
 <spring:message code="label.password" var="labelPassword"/>
+<spring:message code="label.rePassword" var="labelRePassword"/>
 <spring:message code="label.registration.button" var="labelRegButton"/>
 <spring:message code="label.registration.page.title" var="labelPageTitle"/>
 <spring:message code="label.client.registration.title.layer1" var="labelTitleLayer1"/>
@@ -15,6 +16,8 @@
 <body onload='document.client.username.focus();'>
 
 <h1>${labelTitleLayer1}</h1>
+
+<form:errors path="*"/>
 
 <div id="user-box">
     <form:form commandName='client'
@@ -31,6 +34,11 @@
                 <td>${labelPassword}:</td>
                 <td><form:input type='password' path='password'/></td>
                 <td><form:errors path='password'/></td>
+            </tr>
+            <tr>
+                <td>${labelRePassword}:</td>
+                <td><form:input type='password' path='rePassword'/></td>
+                <td><form:errors path='rePassword'/></td>
             </tr>
             <tr>
                 <td/>
