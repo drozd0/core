@@ -1,6 +1,8 @@
 package ru.qlogistic.logic.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import ru.qlogistic.logic.model.User;
 import ru.qlogistic.logic.service.UserService;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
@@ -30,4 +32,14 @@ public class UserServiceImpl implements UserService{
     public User findByUsername(String email){
         return userDao.findByUsername(email);
     }
+
+    @Override
+    public User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null)
+            return findByUsername(authentication.getName());
+        return null;
+    }
+
+
 }

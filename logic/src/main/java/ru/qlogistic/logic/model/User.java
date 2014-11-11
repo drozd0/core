@@ -52,6 +52,9 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "courier_id")
     private Set<Order> deliveredOrders;
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "address_id")
+    private Address address;
 
     public Long getId() {
         return id;
@@ -167,6 +170,14 @@ public class User implements Serializable {
 
     public void setDeliveredOrders(Set<Order> deliveredOrders) {
         this.deliveredOrders = deliveredOrders;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

@@ -11,8 +11,17 @@ public class Address implements Serializable {
     @Column(name = "address_id")
     private Long id;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "street")
+    private String street;
+
+    @Column(name = "building")
+    private String buildingNum;
+
+    @Column(name = "flat")
+    private String flatNum;
 
     @Column(name = "longtitude")
     private Double longtitude;
@@ -20,20 +29,15 @@ public class Address implements Serializable {
     @Column(name = "latitude")
     private Double latitude;
 
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
+    private User user;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Double getLongtitude() {
@@ -50,5 +54,41 @@ public class Address implements Serializable {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getBuildingNum() {
+        return buildingNum;
+    }
+
+    public void setBuildingNum(String buildingNum) {
+        this.buildingNum = buildingNum;
+    }
+
+    public String getFlatNum() {
+        return flatNum;
+    }
+
+    public void setFlatNum(String flatNum) {
+        this.flatNum = flatNum;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

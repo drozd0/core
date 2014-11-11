@@ -6,4 +6,5 @@ public interface UserService{
     void saveOrUpdate(final User user);
     User findById(Long id);
     User findByUsername(String email);
+    User getCurrentUser();
 }
