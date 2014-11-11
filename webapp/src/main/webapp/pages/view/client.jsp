@@ -8,5 +8,6 @@
 </head>
 <body>
     <H3>The Client's page</H3>
+    <a href="/logout">Выйти</a></td>
 </body>
 </html>

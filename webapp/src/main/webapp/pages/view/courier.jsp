@@ -5,5 +5,6 @@
 </head>
 <body>
     <H3>The courier's page</H3>
+    <a href="/logout">Выйти</a></td>
 </body>
 </html>

@@ -24,7 +24,7 @@
 			login-processing-url="/authenticate"
 			authentication-success-handler-ref="successRedirectService" />
 
-		<logout logout-success-url="/login?logout" delete-cookies="JSESSIONID" />
+		<logout logout-url="/logout" logout-success-url="/login" delete-cookies="JSESSIONID"  />
 
 	</http>
 

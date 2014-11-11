@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <h1>Client private account</h1>
+<a href="/logout">Выйти</a></td>
 
 <h3>${currentUser.username} - client</h3>
 <form:form commandName="phoneSaveRequest" method="post" action="/client/personal/phonesave">

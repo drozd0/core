@@ -9,6 +9,7 @@
 <spring:message code="label.registration.button" var="labelRegButton"/>
 <spring:message code="label.registration.page.title" var="labelPageTitle"/>
 <spring:message code="label.client.registration.title.layer1" var="labelTitleLayer1"/>
+<spring:message code="label.back" var="labelBack"/>
 <html>
 <head>
     <title></title>
@@ -41,7 +42,7 @@
                 <td><form:errors path='rePassword'/></td>
             </tr>
             <tr>
-                <td/>
+                <td><a href="/login">${labelBack}</a></td>
                 <td><input name="submit" type="submit" value="${labelRegButton}" /></td>
             </tr>
         </table>
