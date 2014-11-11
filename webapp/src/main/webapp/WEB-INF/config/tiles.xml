@@ -45,6 +45,7 @@
 
 
     <definition name="login" template="/pages/login.jsp"/>
+    <definition name="access_denied" template="/pages/error/access_denied.jsp"/>
     <definition name="client_reg_form" template="/pages/client_reg_form.jsp"/>
     <definition name="courier_reg_form" template="/pages/courier_reg_form.jsp"/>
 
