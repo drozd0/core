@@ -12,10 +12,10 @@
             <property name="name" value="label.personal.item"/>
             <property name="icon" value="icon"/>
         </bean>
-        <bean class="ru.qlogistic.web.util.MenuEntry">
+        <!--bean class="ru.qlogistic.web.util.MenuEntry">
             <property name="controller" value="#{servletContext.contextPath}/client/fake"/>
             <property name="name" value="label.fake.item"/>
             <property name="icon" value="icon"/>
-        </bean>
+        </bean-->
     </util:list>
 </beans>
